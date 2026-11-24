@@ -1,13 +1,9 @@
-<?php
-include 'db.php';
-
-$result = $conn->query("SELECT * FROM cars ORDER BY id DESC");
-?>
 
 <!DOCTYPE html>
 <html lang="kk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Salon</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,7 +11,6 @@ $result = $conn->query("SELECT * FROM cars ORDER BY id DESC");
 
 <header>
     <h1>AUTO<span>SALON</span></h1>
-    <a href="add.php" class="btn">+ Машина қосу</a>
 </header>
 
 <section class="hero">
@@ -27,29 +22,26 @@ $result = $conn->query("SELECT * FROM cars ORDER BY id DESC");
 
 <div class="cars">
 
-<?php while($car = $result->fetch_assoc()) { ?>
+    <div class="card">
+        <img src="images/bmw.jpg" alt="BMW">
+        <h3>BMW</h3>
+        <p>Шыққан жылы: 2022</p>
+        <h4>15 000 000 ₸</h4>
+    </div>
 
-<div class="card">
+    <div class="card">
+        <img src="images/mercedes.jpg" alt="Mercedes">
+        <h3>Mercedes-Benz</h3>
+        <p>Шыққан жылы: 2023</p>
+        <h4>20 000 000 ₸</h4>
+    </div>
 
-    <img src="images/<?php echo htmlspecialchars($car['image']); ?>">
-
-    <h3><?php echo htmlspecialchars($car['name']); ?></h3>
-
-    <p>Шыққан жылы: <?php echo $car['year']; ?></p>
-
-    <h4>
-        <?php echo number_format($car['price'], 0, '', ' '); ?> ₸
-    </h4>
-
-    <a class="delete"
-       href="delete.php?id=<?php echo $car['id']; ?>"
-       onclick="return confirm('Машинаны өшіресіз бе?')">
-       Өшіру
-    </a>
-
-</div>
-
-<?php } ?>
+    <div class="card">
+        <img src="images/toyota.jpg" alt="Toyota">
+        <h3>Toyota</h3>
+        <p>Шыққан жылы: 2021</p>
+        <h4>12 000 000 ₸</h4>
+    </div>
 
 </div>
 
